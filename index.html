@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ORDER JASTEB GANZX</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Orbitron', monospace;
+            overflow-x: hidden;
+            background: linear-gradient(-45deg, #667eea, #764ba2, #f093fb, #f5576c, #4facfe, #00f2fe);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            min-height: 100vh;
+            color: white;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Animated particles */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(255,255,255,0.8);
+            border-radius: 50%;
+            animation: float 6s infinite linear;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .header {
+            text-align: center;
+            padding: 30px 20px;
+            position: relative;
+            z-index: 10;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #ff00de; }
+            to { text-shadow: 0 0 30px #fff, 0 0 40px #ff00de, 0 0 50px #00f2fe; }
+        }
+
+        .logo {
+            font-size: 4rem;
+            font-weight: 900;
+            background: linear-gradient(45deg, #ff00de, #00f2fe, #ffeb3b, #ff6b6b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+        }
+
+        .tagline {
+            font-size: 1.5rem;
+            opacity: 0.9;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .whatsapp-btn {
+            display: inline-block;
+            margin: 20px 0;
+            padding: 15px 40px;
+            background: linear-gradient(45deg, #25D366, #128C7E);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            box-shadow: 0 10px 30px rgba(37,211,102,0.4);
+            transition: all 0.3s ease;
+            animation: bounce 2s infinite;
+            position: relative;
+            z-index: 20;
+        }
+
+        .whatsapp-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(37,211,102,0.6);
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+
+        .products {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .products h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            background: linear-gradient(45deg, #ff00de, #00f2fe);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            border: 2px solid rgba(255,255,255,0.2);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .product-card:hover::before {
+            left: 100%;
+        }
+
+        .product-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            background: rgba(255,255,255,0.2);
+            border-color: rgba(255,255,255,0.5);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+        }
+
+        .product-emoji {
+            font-size: 4rem;
+            margin-bottom: 15px;
+            animation: spin 3s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .product-name {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        .product-price {
+            font-size: 2.5rem;
+            font-weight: 900;
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+        }
+
+        .coming-soon {
+            background: rgba(255,0,222,0.2);
+            border: 2px dashed #ff00de;
+            color: #ff00de;
+            font-weight: bold;
+            padding: 15px;
+            border-radius: 15px;
+            margin-top: 20px;
+            animation: dash 2s infinite;
+        }
+
+        @keyframes dash {
+            0%, 100% { border-color: #ff00de; }
+            50% { border-color: #00f2fe; }
+        }
+
+        .footer {
+            text-align: center;
+            padding: 40px 20px;
+            background: rgba(0,0,0,0.3);
+            margin-top: 60px;
+        }
+
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 2.5rem;
+            }
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+            .product-card {
+                margin: 0 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated Particles -->
+    <div class="particles" id="particles"></div>
+
+    <!-- Header -->
+    <header class="header">
+        <h1 class="logo">ORDER JASTEB GANZX</h1>
+        <p class="tagline">JASTEB PREMIUM TERBAIK 💎</p>
+        <a href="https://wa.me/6287718552020?text=Saya%20mau%20order%20Jasteb%20Ganxx%20🔥" 
+           class="whatsapp-btn" target="_blank">
+           💬 MAU ORDER CHAT WA GANZX
+        </a>
+    </header>
+
+    <!-- Products Section -->
+    <section class="products">
+        <h2>📈 LIST PRODUK & HARGA</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <div class="product-emoji">😻</div>
+                <div class="product-name">JASTEB 55+ RESS</div>
+                <div class="product-price">1K</div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-emoji">🥳</div>
+                <div class="product-name">JASTEB 100+ RESS</div>
+                <div class="product-price">5K</div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-emoji">🤩</div>
+                <div class="product-name">JASTEB 200+ RESS</div>
+                <div class="product-price">10K</div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-emoji">🥶</div>
+                <div class="product-name">JASTEB 300+ RESS</div>
+                <div class="product-price">20K</div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-emoji">👑</div>
+                <div class="product-name">JASTEB 400+ RESS</div>
+                <div class="product-price">30K</div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-emoji">✨</div>
+                <div class="product-name">JASTEB 500+ RESS</div>
+                <div class="product-price">40K</div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-emoji">💥</div>
+                <div class="product-name">JASTEB 600+ RESS</div>
+                <div class="product-price">50K</div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-emoji">🔥</div>
+                <div class="product-name">JASTEB 700+ RESS & SETERUSNYA</div>
+                <div class="product-price">TANYA ADMIN GANZX</div>
+                <div class="coming-soon">📞 HUBUNGI ADMIN UNTUK HARGA SPESIAL</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>🚀 ORDER JASTEB GANZX - KUALITAS SULTAN 💎</p>
+        <p><strong>MAU ORDER? CHAT WA: <a href="https://wa.me/6287718552020" style="color: #25D366;">wa.me/6287718552020</a></strong></p>
+    </footer>
+
+    <script>
+        // Create animated particles
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            for (let i = 0; i < 50; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 6 + 's';
+                particle.style.animationDuration = (Math.random() * 3 + 4) + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Initialize particles
+        createParticles();
+
+        // Recreate particles every 10 seconds
+        setInterval(createParticles, 10000);
+    </script>
+</body>
+</html>
